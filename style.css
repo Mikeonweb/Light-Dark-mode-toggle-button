@@ -1,0 +1,129 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+label{
+    width: 500px;
+    height: 200px;
+    position: relative;
+    display: block;
+    background: black;
+    border-radius: 200px;
+    /* box-shadow: inset 3px 3px 0px blue, inset -3px -3px 0px red; */
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+label:after{
+    content: "";
+    width: 180px;
+    height: 180px;
+    top: 10px;
+    left: 10px;
+    position: absolute;
+    border-radius: 180px;
+    background: linear-gradient(145deg, #fff, #fff);
+    /* box-shadow: 3px 3px #fff, -3px -3px #fff; */
+    transition: 0.3s;
+}
+
+input{
+    width: 0;
+    height: 0;
+    visibility: hidden;
+}
+
+input:checked + label {
+    background: #fff;
+}
+
+input:checked + label:after{
+    left: 490px;
+    transform: translateX(-100%);
+    background: linear-gradient(180deg, black, darkgrey);
+}
+/* click effect */
+label:active:after{
+    width: 300px;
+}
+/*  */
+#background{
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    position: absolute;
+    background: #fff;
+    transition: 0.3s;
+}
+
+input:checked + label + #background{
+    background: #000;
+}
+
+label i{
+    position: absolute;
+    width: 120px;
+    top: 50px;
+    z-index: 1;
+}
+label .fa-sun-o{
+    font-size: 100px;
+    left: 40px;
+    fill: #fff;
+    transition: 0.3s;
+    color: yellow;
+}
+label .fa-moon-o{
+    font-size: 100px;
+    right: 10px;
+    fill: grey;
+    transition: 0.3s;
+}
+
+input:checked + label .fa-sun-o{
+    fill: #7e7e7e;
+    color: white;
+}
+input:checked + label .fa-moon-o{
+    fill: #fff;
+
+}
+
+@media screen and ( max-width: 760px){
+    label{
+        width: 400px;
+        height: 100px;
+    }
+    label:after{
+        content: "";
+        width: 80px;
+        height: 80px; 
+    }
+    input:checked + label:after{
+        left: 395px;
+    }
+    label .fa-sun-o{
+        font-size: 50px;
+        left: 23px;
+        top: 25px;
+        
+    }
+    label .fa-moon-o{
+        font-size: 50px;
+        left: 334px;
+        top: 25px;
+        fill: grey;
+        transition: 0.3s;
+    }
+    
+}
